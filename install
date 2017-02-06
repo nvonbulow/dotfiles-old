@@ -1,0 +1,2 @@
+#!/bin/sh
+find -path ./.git -prune -o -name ".*" -type f -exec rm -f ~/{} \; -exec ln -s `pwd`/{} ~/{} \;

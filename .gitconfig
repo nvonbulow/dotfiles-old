@@ -4,3 +4,5 @@
 	signingkey = nvonbulow
 [commit]
 	gpgsign = true
+[core]
+	editor = nano

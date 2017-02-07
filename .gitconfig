@@ -2,3 +2,5 @@
 	name = nvonbulow
 	email = nick@nvonbulow.com
 	signingkey = nvonbulow
+[commit]
+	gpgsign = true

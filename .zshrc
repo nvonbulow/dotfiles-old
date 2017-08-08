@@ -3,8 +3,15 @@
 
 export PATH=$PATH:/opt/android-sdk/platform-tools
 
+# A ZSH cache dir for each user
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+# Create it if it doesn't exist
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/usr/share/oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -16,10 +23,10 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -83,6 +90,6 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
+
+alias zshconfig="nano ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

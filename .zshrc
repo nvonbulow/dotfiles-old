@@ -78,6 +78,9 @@ export EDITOR='nano'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Export npm global path
+export PATH=$PATH:~/.npm-global/bin
+
 # ssh
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 

@@ -1,2 +1,2 @@
 #!/bin/sh
-find -path ./.git -prune -o -name ".*" -type f -exec rm -f ~/{} \; -exec ln -s `pwd`/{} ~/{} \;
+find . -mindepth 1 -path ./.git -prune -o -name ".*" -print -exec rm -f ~/{} \; -exec ln -s `pwd`/{} ~/{} \;

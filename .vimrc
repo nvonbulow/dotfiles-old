@@ -97,6 +97,9 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme darcula
 
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:syntastic_javascript_checkers=['eslint']
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -106,7 +109,22 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'pangloss/vim-javascript'
-
 Plug 'mxw/vim-jsx'
 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
+
+Plug 'vim-syntastic/syntastic'
+
 call plug#end()
+
+" File explorer stuff
+map <F7> :NERDTreeTabsToggle<CR>
+map gj :NERDTreeFocusToggle<CR> 
+
+nnoremap gn :tabprevious<CR>
+nnoremap gm :tabnext<CR>
+nnoremap <silent> gc :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> gv :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+

@@ -1,0 +1,5 @@
+# Ignore the directory where vim-plugged stores plugins
+.vim/plugged
+.vim/autoload/plug.vim
+.vim/.netrwhist
+

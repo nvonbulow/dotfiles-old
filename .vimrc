@@ -32,6 +32,20 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
 " let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name: name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force: set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --js-completer
+  endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+nnoremap gd :YcmCompleter GoToDefinition<CR>
+nnoremap gr :YcmCompleter GoToReferences<CR>
+
 call plug#end()
 
 set statusline+=%#warningmsg#

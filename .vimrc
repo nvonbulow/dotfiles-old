@@ -4,7 +4,50 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" TODO: Load plugins here (pathogen or vundle)
+" Make sure the plugin loader and plugins are installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'sheerun/vim-polyglot'
+
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
+let g:nerdtree_tabs_open_on_console_startup=1
+map <F7> :NERDTreeTabsToggle<CR>
+map gj :NERDTreeFocusToggle<CR> 
+
+Plug 'vim-syntastic/syntastic'
+" Uncomment to debug syntax highlighting
+" let g:syntastic_debug=33
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
+call plug#end()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Tab navigation shortcuts
+nnoremap gn :tabprevious<CR>
+nnoremap gm :tabnext<CR>
+nnoremap <silent> gc :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> gv :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+nnoremap gk :q<CR>
+nnoremap gh :tabnew<CR>
+
+autocmd BufReadPost * tab ball
+
 
 " Turn on syntax highlighting
 syntax on
@@ -12,8 +55,8 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-" let mapleader = ","
+" Pick a leader key
+let mapleader = ";"
 
 " Security
 set modelines=0
@@ -97,34 +140,6 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme darcula
 
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:syntastic_javascript_checkers=['eslint']
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
-
-Plug 'vim-syntastic/syntastic'
-
-call plug#end()
-
-" File explorer stuff
-map <F7> :NERDTreeTabsToggle<CR>
-map gj :NERDTreeFocusToggle<CR> 
-
-nnoremap gn :tabprevious<CR>
-nnoremap gm :tabnext<CR>
-nnoremap <silent> gc :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> gv :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 

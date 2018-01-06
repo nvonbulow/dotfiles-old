@@ -94,5 +94,6 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 
+alias edit="$EDITOR"
 alias zshconfig="$EDITOR ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

@@ -73,7 +73,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='nano'
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -94,5 +94,5 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 
-alias zshconfig="nano ~/.zshrc"
+alias zshconfig="$EDITOR ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

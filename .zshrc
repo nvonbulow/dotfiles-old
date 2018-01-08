@@ -61,10 +61,21 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colorize command-not-found compleat tmux tugboat bower 
-github gitignore node archlinux sudo)
+github gitignore node yarn archlinux sudo autojump aws common-aliases 
+dirhistory gpg-agent systemd)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Arch Linux specific package path
+if [ -f "/etc/arch-release" ]; then
+  # Requires `zsh-syntax-highlighting`
+  ZSH_SYNTAX_HIGHLIGHTING=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  # Requires `pkgfile`
+  ZSH_COMMAND_NOT_FOUND=/usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
+if [ -f $ZSH_SYNTAX_HIGHLIGHTING ]; then source $ZSH_SYNTAX_HIGHLIGHTING; fi
+if [ -f $ZSH_COMMAND_NOT_FOUND ]; then source $ZSH_COMMAND_NOT_FOUND; fi
 
 # User configuration
 
@@ -80,13 +91,6 @@ export EDITOR='vim'
 
 # Export npm global path
 export PATH=$PATH:~/.npm-global/bin
-
-# ssh
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-  gpg-connect-agent /bye >/dev/null 2>&1
-fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

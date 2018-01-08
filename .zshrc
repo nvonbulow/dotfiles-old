@@ -96,4 +96,5 @@ fi
 
 alias edit="$EDITOR"
 alias zshconfig="$EDITOR ~/.zshrc"
+alias docker-env="eval \$(docker-machine env)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

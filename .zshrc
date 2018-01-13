@@ -62,7 +62,8 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colorize command-not-found compleat tmux tugboat bower 
 github gitignore node yarn archlinux sudo autojump aws common-aliases 
-dirhistory gpg-agent systemd)
+dirhistory gpg-agent systemd docker docker-machine docker-compose dotenv
+systemadmin)
 
 source $ZSH/oh-my-zsh.sh
 

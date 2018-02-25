@@ -68,15 +68,20 @@ systemadmin)
 source $ZSH/oh-my-zsh.sh
 
 # Arch Linux specific package path
-if [ -f "/etc/arch-release" ]; then
+if [ -f "/etc/arch-release" ] || [ -f "/etc/anarchy-release" ]; then
   # Requires `zsh-syntax-highlighting`
   ZSH_SYNTAX_HIGHLIGHTING=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   # Requires `pkgfile`
   ZSH_COMMAND_NOT_FOUND=/usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
-if [ -f $ZSH_SYNTAX_HIGHLIGHTING ]; then source $ZSH_SYNTAX_HIGHLIGHTING; fi
-if [ -f $ZSH_COMMAND_NOT_FOUND ]; then source $ZSH_COMMAND_NOT_FOUND; fi
+if [ -f $ZSH_SYNTAX_HIGHLIGHTING ]; then
+  source $ZSH_SYNTAX_HIGHLIGHTING
+fi
+
+if [ -f $ZSH_COMMAND_NOT_FOUND ]; then
+  source $ZSH_COMMAND_NOT_FOUND
+fi
 
 # User configuration
 

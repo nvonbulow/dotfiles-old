@@ -5,7 +5,7 @@
 [commit]
 	gpgsign = false
 [core]
-	editor = nano
+	editor = vim
 [color]
 	ui = auto
 [credential]

@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export PATH=$PATH:/opt/android-sdk/platform-tools
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/opt/android-sdk/platform-tools:~/.gem/ruby/2.5.0/bin
 
 # A ZSH cache dir for each user
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
@@ -63,7 +64,7 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git colorize command-not-found compleat tmux tugboat bower 
 github gitignore node yarn archlinux sudo autojump aws common-aliases 
 dirhistory gpg-agent systemd docker docker-machine docker-compose dotenv
-systemadmin)
+systemadmin aws autojump command-not-found colored-man-pages fancy-ctrl-z npx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,5 +107,9 @@ export PATH=$PATH:~/.npm-global/bin
 
 alias edit="$EDITOR"
 alias zshconfig="$EDITOR ~/.zshrc"
+alias zshsource="source ~/.zshrc"
 alias docker-env="eval \$(docker-machine env)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

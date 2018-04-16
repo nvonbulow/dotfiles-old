@@ -36,8 +36,9 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
 #POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="❱ "
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰ \uF460\uF460\uF460 "
 
-# Theme VCS config
-POWERLEVEL9K_SHOW_CHANGESET=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

@@ -4,6 +4,7 @@
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/opt/android-sdk/platform-tools:~/.gem/ruby/2.5.0/bin
 
+export TERM=xterm-256color
 # A ZSH cache dir for each user
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 # Create it if it doesn't exist
@@ -74,6 +75,8 @@ if [ -f "/etc/arch-release" ] || [ -f "/etc/anarchy-release" ]; then
   ZSH_SYNTAX_HIGHLIGHTING=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   # Requires `pkgfile`
   ZSH_COMMAND_NOT_FOUND=/usr/share/doc/pkgfile/command-not-found.zsh
+  # Requires `zsh-autosuggestions`
+  ZSH_AUTOSUGGESTIONS=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 if [ -f $ZSH_SYNTAX_HIGHLIGHTING ]; then
@@ -82,6 +85,10 @@ fi
 
 if [ -f $ZSH_COMMAND_NOT_FOUND ]; then
   source $ZSH_COMMAND_NOT_FOUND
+fi
+
+if [ -f $ZSH_AUTOSUGGESTIONS ]; then
+  source $ZSH_AUTOSUGGESTIONS
 fi
 
 # User configuration
